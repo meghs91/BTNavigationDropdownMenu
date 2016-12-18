@@ -101,6 +101,8 @@ First, assign the items and frame for the dropdown menu. Then, customize the loo
 
 `shouldKeepSelectedCellColor` **- Selected cell color visibility when menu is shown** *Default is false*
 
+`menuTitleColor`  **- The color of the title displayed in the menu.** *Default is lightGrayColor()*
+
 `shouldChangeTitleText` **- Ability to change the selected title text** *Default is true*
 
 `selectedCellTextLabelColor`  **- Selected cell text label color** *Default is darkGrayColor()*
