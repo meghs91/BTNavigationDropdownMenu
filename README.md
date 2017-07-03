@@ -6,12 +6,13 @@
 <!--[![Build Status](https://travis-ci.org/PhamBaTho/BTNavigationDropdownMenu.svg?branch=master)](https://travis-ci.org/PhamBaTho/BTNavigationDropdownMenu)-->
 
 ## Introduction:
-This elegant **Swift** dropdown menu appears underneath the navigation bar to display a list of related items when a user clicks on the navigation title.
+The elegant dropdown menu, written in **Swift**, appears underneath navigation bar to display a list of related items when a user click on the navigation title.
 
 ![alt tag](https://github.com/PhamBaTho/BTNavigationDropdownMenu/blob/master/Assets/Demo.gif)
 
 ## Installation:
-**BTNavigationDropdownMenu** is available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your Podfile:
+**BTNavigationDropdownMenu** is available through [CocoaPods](http://cocoapods.org). To install
+it, simply add the following line to your Podfile:
 
 ```ruby
 use_frameworks!
@@ -21,19 +22,19 @@ Go ahead and **import** BTNavigationDropdownMenu into your own Swift files
 ```swift
 import BTNavigationDropdownMenu
 ```
-Note: This library supports **Xcode 7, Swift 2.2** and embedded frameworks.
+Note: This library mainly supports for **Xcode 7, Swift 2.2** and embedded frameworks.
 
-⚡⚡⚡ **Swift 3.0** ⚡⚡⚡
+⚡⚡️⚡ **Swift 3.0 supporting** ⚡⚡⚡
 
-If you would like to use Swift 3.0, add these lines to your Podfile:
+If you would like to use Swift 3.0, you can use these lines of code in your Podfile:
 
 ```ruby
 pod 'BTNavigationDropdownMenu', :git => 'https://github.com/PhamBaTho/BTNavigationDropdownMenu.git', :branch => 'swift-3.0'
 ```
 
 ## Usage:
-### Instantiate
-Start by creating an Array that contains strings as **elements of a dropdown list**:
+### Instantiating
+Start by creating an Array that contains strings as **elements of dropdown list**:
 ```swift
 let items = ["Most Popular", "Latest", "Trending", "Nearest", "Top Picks"]
 ```
@@ -41,13 +42,13 @@ Create a **new instance** of BTNavigationDropdownMenu:
 ```swift
 let menuView = BTNavigationDropdownMenu(navigationController: self.navigationController, containerView: self.navigationController!.view, title: "Dropdown Menu", items: items)
 ```
-or like this:
+or just simple like this:
 ```swift
 let menuView = BTNavigationDropdownMenu(title: items[0], items: items)
 ```
-By default, `navigationController` is the topmost navigation controller and `containerView` is keyWindow. 
+By default, `navigationController` is the top most navigation controller and `containerView` is keyWindow. 
 
-(`keyWindow` is recommended for `containerView` because the black overlay can cover the whole screen. In some cases, `keyWindow` doesn't work properly, like using with side menu, (e.g. SWRevealViewController), the dropdown menu doesn't move along with the parent view or navigation controller. To workaround this issue, you can use `self.navigationController!.view`.)
+(`keyWindow` is recommended for `containerView` because in this way, the black overlay can cover the whole screen. But in some cases, `keyWindow` doesn't work properly, like using with side menu, (e.g. SWRevealViewController), the dropdown menu didn't move along with their parent view controller or navigation controller. To resolve this issue, you can use `self.navigationController!.view` instead.)
 
 Set **title of navigation bar** as menuView:
 ```swift
@@ -60,57 +61,55 @@ menuView.didSelectItemAtIndexHandler = {[weak self] (indexPath: Int) -> () in
             self.selectedCellLabel.text = items[indexPath]
 }
 ```
-`menuView.show()` or `menuView.hide()` to show or hide dropdown menu manually.
+Use `menuView.show()` or `menuView.hide()` if you want to show or hide dropdown menu manually.
 
-`menuView.toggle()` to toogle dropdown menu shown/hide.
+Use `menuView.toggle()` to toogle dropdown menu shown/hide.
 
-`menuView.isShown` (Boolean type) property to check showing state of dropdown menu.
+Use `menuView.isShown` (Boolean type) property to check showing state of dropdown menu.
 
-`menuView.updateItems(items: [AnyObject])` to update items in dropdown menu.
+Use `menuView.updateItems(items: [AnyObject])` to update items in dropdown menu if needed.
 
 ### Customization
-First, assign the items and frame for the dropdown menu. Then, customize the look and feel of the menu by overriding these properties:
+Once you have assigned the items and frame for dropdown menu, you can custom the look and the feel of menu. You can override these properties for your favor:
 
-`cellHeight` **- Cell height** *Default is 50*
+`cellHeight` **- The height of the cell.** *Default is 50*
 
-`cellBackgroundColor` **- Cell background color** *Default is whiteColor()*
+`cellBackgroundColor` **- The color of the cell background.** *Default is whiteColor()*
 
-`cellSeparatorColor` **- Cell separator color** *Default is darkGrayColor()*
+`cellSeparatorColor` **- The color of the cell separator.** *Default is darkGrayColor()*
 
-`cellTextLabelColor` **- Text color inside of the cell** *Default is darkGrayColor()*
+`cellTextLabelColor` **- The color of the text inside cell.** *Default is darkGrayColor()*
 
-`cellTextLabelFont` **- Font inside the cell** *Default is HelveticaNeue-Bold, size 17*
+`cellTextLabelFont` **- The font of the text inside cell.** *Default is HelveticaNeue-Bold, size 17*
 
-`navigationBarTitleFont` **- Navigation bar title font** *Default is HelveticaNeue-Bold, size 17*
+`navigationBarTitleFont` **- The font of the navigation bar title.** *Default is HelveticaNeue-Bold, size 17*
 
-`cellTextLabelAlignment` **- Text alignment inside of the cell** *Default is .Left*
+`cellTextLabelAlignment` **- The alignment of the text inside cell.** *Default is .Left*
 
-`cellSelectionColor`  **- Selected color of the cell** *Default is lightGrayColor()*
+`cellSelectionColor`  **- The color of the cell when the cell is selected.** *Default is lightGrayColor()*
 
-`checkMarkImage`  **- Checkmark icon for the cell.**
+`checkMarkImage`  **- The checkmark icon of the cell.**
 
-`animationDuration`  **- Animation duration for showing/hiding of the menu** *Default is 0.5s*
+`animationDuration`  **- The animation duration of showing/hiding menu.** *Default is 0.5s*
 
-`arrowImage`  **- Arrow next to the navigation title**
+`arrowImage`  **- The arrow next to navigation title**
 
-`arrowPadding`  **- Padding between the navigation title and arrow.** *Default is 15*
+`arrowPadding`  **- The padding between navigation title and arrow.** *Default is 15*
 
-`maskBackgroundColor`  **- Mask layer color** *Default is blackColor()*
+`maskBackgroundColor`  **- The color of the mask layer.** *Default is blackColor()*
 
-`maskBackgroundOpacity`  **- Opacity of the mask layer** *Default is 0.3*
+`maskBackgroundOpacity`  **- The opacity of the mask layer.** *Default is 0.3*
 
-`shouldKeepSelectedCellColor` **- Selected cell color visibility when menu is shown** *Default is false*
+`shouldKeepSelectedCellColor` **- The boolean value that decides if selected color of cell is visible when the menu is shown.** *Default is false*
 
-`menuTitleColor`  **- The color of the title displayed in the menu.** *Default is lightGrayColor()*
+`shouldChangeTitleText` **- The boolean value that decides if you want to change the title text when a cell is selected.** *Default is true*
 
-`shouldChangeTitleText` **- Ability to change the selected title text** *Default is true*
+`selectedCellTextLabelColor`  **- The color of the selected cell text label.** *Default is darkGrayColor()*
 
-`selectedCellTextLabelColor`  **- Selected cell text label color** *Default is darkGrayColor()*
+`arrowTintColor`  **- The tint color of the arrow.** *Default is whiteColor()*
 
-`arrowTintColor`  **- Tint color of the arrow.** *Default is whiteColor()*
-
-## Requirements
-- iOS 8.0+ (CocoaPods with Swift support will only work on iOS 8.0+. Otherwise, you will have to import library to your project)
+## Requirement
+- iOS 8.0+ (CocoaPods with Swift support will only work on iOS 8.0+. Alternatively, you will have to import library manually to your project)
 - Xcode 7.0+, Swift 2.0+
 
 ## Changelog
